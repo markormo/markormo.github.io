@@ -2,89 +2,118 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotBuilders - Stealth Demo</title>
+
     <style>
         .stealth {
-            width: 1000px;
             margin: auto;
-        }
-
-        .stealth>div {
-            flex: 1;
+            height: 250px;
         }
 
         .stealth>div img {
             width: 100%;
         }
 
+        .stealth-arrow {
+            display: flex;
+            width: 360px;
+            max-width: 360px;
+            margin: auto;
+        }
+
         .stealth-arrow img {
             width: 100px !important;
         }
 
-        .stealth-arrow img.aleft {
-            position: absolute;
-            left: 30px;
-        }
-
-        .stealth-arrow img.aright {
-            position: absolute;
-            right: 30px;
-        }
-
         .widget-btn {
-            position: absolute;
-            top: 105px;
-            left: 167px;
+            position: relative;
+            top: 15px;
+            left: 13px;
+
+            /* tmp */
+            background: transparent;
+            width: 177px;
+            height: 36px;
+            text-align: center;
         }
 
-        @media (max-width: 767px) {
+        @media only screen and (max-width: 576px) {
             .stealth {
                 display: flex;
                 flex-direction: column;
-                width: 100%;
+            }
+
+            .stealth-left {
+                text-align: center;
+            }
+
+            .stealth-left img {
+                width: 50% !important;
             }
 
             .stealth-right {
-                padding-top: 20px;
+                padding-top: 12px;
             }
 
             .stealth-arrow img {
-                width: 65px !important;
-            }
-
-            .widget-btn {
-                position: absolute;
-                top: 105px;
-                left: 100px;
+                width: 100px !important;
             }
         }
 
-        @media (min-width: 768px) and (max-width: 992px) {
+        @media only screen and (min-width: 576px) {
             .stealth {
-                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .stealth-left {
+                text-align: center;
+            }
+
+            .stealth-left img {
+                width: 50% !important;
+            }
+
+            .stealth-right {
+                padding-top: 12px;
             }
 
             .stealth-arrow img {
-                width: 65px !important;
-            }
-
-            .widget-btn {
-                position: absolute;
-                top: 90px;
-                left: 115px;
+                width: 100px !important;
             }
         }
 
-        @media (min-width: 993px) {
+        @media only screen and (min-width: 768px) {
+            .stealth {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                height: 200px;
+                width: 750px;
+                max-width: 750px;
+            }
+
+
+            .stealth-left img {
+                width: 300px !important;
+                height: 90% !important;
+            }
+
             .stealth-arrow img {
-                width: 125px !important;
-            }
-
-            .widget-btn {
-                position: absolute;
-                top: 130px;
-                left: 162px;
+                width: 90px !important;
             }
         }
+
+        @media only screen and (min-width: 992px) {
+            .stealth-arrow img {
+                width: 90px !important;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {}
     </style>
 
     <script src="https://connect.facebook.net/en_US/sdk.js" defer></script>
@@ -100,10 +129,8 @@
         function toggleWidget(fb_ok) {
             var widget = document.getElementById('stealth-id');
 
-            console.log('state: ', fb_ok);
-
             if (fb_ok) {
-                widget.style.display = 'block';
+                widget.style.display = 'flex';
                 return
             }
 
@@ -156,7 +183,8 @@
     <div id="stealth-id" class="stealth" style="display: flex">
         <!-- <div class="stealth" style="display: flex"> -->
         <div class="stealth-left">
-            <img src="https://trainingconfirmation.com/image/stealth_demo/ipad_stack.webp" alt="graphics" />
+            <img src="https://trainingconfirmation.com/image/stealth_demo/ipad_stack.webp" alt="graphics"
+                style="height: 100%; width: 350px;" />
         </div>
 
         <div class="stealth-right" style="position: relative">
@@ -165,12 +193,13 @@
             <div class="stealth-arrow">
                 <img class="aleft" src="https://trainingconfirmation.com/image/stealth_demo/arrow_1.webp"
                     alt="graphics" />
+
+                <!-- Manychat fb button -->
+                <div class="mcwidget-embed widget-btn" data-widget-id="17491318"></div>
+
                 <img class="aright" src="https://trainingconfirmation.com/image/stealth_demo/arrow_2.webp"
                     alt="graphics" />
             </div>
-
-            <!-- Manychat fb button -->
-            <div class="mcwidget-embed widget-btn" data-widget-id="17486677"></div>
         </div>
     </div>
 </body>
